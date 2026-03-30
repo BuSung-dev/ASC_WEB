@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/base-path";
 
 import { FaInstagram, FaQuestionCircle } from "react-icons/fa";
 
@@ -43,7 +44,7 @@ export default function Footer() {
             opacity: "0.6",
           }}
         >
-          <Image src={"/ASC.png"} width={100} height={100} alt="logo" style={{ height: "45px", width: "auto" }} />
+          <Image src={withBasePath("/ASC.png")} width={100} height={100} alt="logo" style={{ height: "45px", width: "auto" }} />
           <div style={{ display: "flex", flexDirection: "column", gap: "0px" }}>
             <span style={{ fontSize: "24px" }}>ASC</span>
             <span style={{ fontSize: "13px", fontWeight: "300" }}>Academic Security Club</span>

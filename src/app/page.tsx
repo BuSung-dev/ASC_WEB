@@ -26,6 +26,7 @@ import DefaultCurriculum from "@/component/DefaultCurriculum";
 import { useRouter } from "next/navigation";
 import RecruitPopup from "@/component/RecruitPopup";
 import DefaultTeamActivity from "@/component/DefaultTeamActivity";
+import { withBasePath } from "@/lib/base-path";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,21 +46,42 @@ export default function Home() {
 
   const router = useRouter();
 
+  const getDefaultProjectYear = (timeline: any[]) => {
+    const sectionsWithProjects = timeline.filter(
+      (section: any) => Array.isArray(section.projects) && section.projects.length > 0
+    );
+    const candidateSections = sectionsWithProjects.length > 0 ? sectionsWithProjects : timeline;
+
+    return (
+      candidateSections.reduce((latest: any, current: any) => {
+        if (!latest) return current;
+
+        const latestYear = Number.parseInt(String(latest.year ?? ""), 10);
+        const currentYear = Number.parseInt(String(current.year ?? ""), 10);
+
+        if (Number.isNaN(latestYear)) return current;
+        if (Number.isNaN(currentYear)) return latest;
+
+        return currentYear > latestYear ? current : latest;
+      }, null)?.year ?? null
+    );
+  };
+
   useEffect(() => {
 
-    fetch("/data/awards.json").then(async (result) => {
+    fetch(withBasePath("/data/awards.json")).then(async (result) => {
       setAwardList(await result.json())
     })
 
-    fetch("/data/activities.json").then(async (result) => {
+    fetch(withBasePath("/data/activities.json")).then(async (result) => {
       setActivityList(await result.json())
     })
 
-    fetch("/data/curriculums.json").then(async (result) => {
+    fetch(withBasePath("/data/curriculums.json")).then(async (result) => {
       setCurriculumList(await result.json())
     })
 
-    fetch("/data/apply.json").then(async (result) => {
+    fetch(withBasePath("/data/apply.json")).then(async (result) => {
         const data = await result.json();
         setApplyData(data);
         if (data.isOpen) {
@@ -67,10 +89,10 @@ export default function Home() {
         }
     })
 
-    fetch("/data/projects.json").then(async (result) => {
+    fetch(withBasePath("/data/projects.json")).then(async (result) => {
       const data = await result.json();
       setProjectData(data);
-      setOpenProjectYear(data.timeline?.[0]?.year ?? null);
+      setOpenProjectYear(getDefaultProjectYear(data.timeline ?? []));
     })
 
   }, [])
@@ -79,6 +101,7 @@ export default function Home() {
   const projectTimeline = projectData.timeline ?? [];
   const selectedProjectYearSection =
     projectTimeline.find((section: any) => section.year === openProjectYear) ?? projectTimeline[0] ?? null;
+  const selectedProjectList = selectedProjectYearSection?.projects ?? [];
 
   const toggleProjectYear = (year: string) => {
     setOpenProjectYear(year);
@@ -266,7 +289,7 @@ export default function Home() {
                           </div>
 
                           <div className={`${ui_styles.curriculum_info} ${ui_styles.image}`}>
-                            <Image src={curriculumList[name].image} width={100} height={100} alt=""></Image>
+                            <Image src={withBasePath(curriculumList[name].image)} width={100} height={100} alt=""></Image>
                           </div>
                         </DefaultCurriculum>
                       })
@@ -339,7 +362,7 @@ export default function Home() {
             <FadeFromLeft className={""} style={{}}>
               <p className={ui_styles.text_title_2} style={{ fontWeight: 600, color: "rgba(255,255,255,0.9)" }}>ASC 프로젝트</p>
               <p className={ui_styles.text_description_2} style={{ color: "rgba(255,255,255,0.55)", marginTop: "8px" }}>
-                연도별 마일스톤 형태로 정리했습니다.
+                연도별 진행한 프로젝트입니다.
               </p>
             </FadeFromLeft>
 
@@ -363,35 +386,53 @@ export default function Home() {
 
                   <div className={ui_styles.project_timeline}>
                     <div className={ui_styles.project_year_panel}>
-                      <div key={selectedProjectYearSection.year} className={`${ui_styles.project_year_track} ${ui_styles.project_year_track_switch}`}>
-                        {selectedProjectYearSection.projects && selectedProjectYearSection.projects.map((project: any, projectIndex: number) => (
-                          <article key={`${selectedProjectYearSection.year}-${project.title}-${projectIndex}`} className={ui_styles.project_milestone}>
-                            <span className={ui_styles.project_milestone_dot}></span>
-                            <div className={ui_styles.project_milestone_card}>
-                              <div className={ui_styles.project_milestone_thumbnail_wrap}>
-                                <Image
-                                  className={ui_styles.project_milestone_thumbnail}
-                                  src={typeof project.image === "string" && project.image.trim() !== "" ? project.image : "/award_image/placeholder-64.png"}
-                                  width={320}
-                                  height={190}
-                                  alt={project.title}
-                                />
-                              </div>
+                      {selectedProjectList.length > 0 ? (
+                        <div key={selectedProjectYearSection.year} className={`${ui_styles.project_year_track} ${ui_styles.project_year_track_switch}`}>
+                          {selectedProjectList.map((project: any, projectIndex: number) => (
+                            <article key={`${selectedProjectYearSection.year}-${project.title}-${projectIndex}`} className={ui_styles.project_milestone}>
+                              <span className={ui_styles.project_milestone_dot}></span>
+                              <div className={ui_styles.project_milestone_card}>
+                                <div className={ui_styles.project_milestone_thumbnail_wrap}>
+                                  <Image
+                                    className={ui_styles.project_milestone_thumbnail}
+                                    src={withBasePath(typeof project.image === "string" && project.image.trim() !== "" ? project.image : "/award_image/placeholder-64.png")}
+                                    width={320}
+                                    height={190}
+                                    alt={project.title}
+                                  />
+                                </div>
 
-                              <div className={ui_styles.project_milestone_content}>
-                                <p className={ui_styles.project_milestone_title}>{project.title}</p>
-                                <p className={ui_styles.project_milestone_description}>{project.description}</p>
+                                <div className={ui_styles.project_milestone_content}>
+                                  <p className={ui_styles.project_milestone_title}>{project.title}</p>
+                                  {project.members && (
+                                    <p className={ui_styles.project_milestone_members}>인원: {project.members}</p>
+                                  )}
+                                  <p className={ui_styles.project_milestone_description}>{project.description}</p>
 
-                                <div className={ui_styles.project_milestone_tags}>
-                                  {project.tags && project.tags.map((tag: string, tagIndex: number) => (
-                                    <span key={`${project.title}-${tag}-${tagIndex}`} className={ui_styles.project_milestone_tag}>{tag}</span>
-                                  ))}
+                                  {project.tags && project.tags.length > 0 && (
+                                    <div className={ui_styles.project_milestone_tags}>
+                                      {project.tags.map((tag: string, tagIndex: number) => (
+                                        <span key={`${project.title}-${tag}-${tagIndex}`} className={ui_styles.project_milestone_tag}>{tag}</span>
+                                      ))}
+                                    </div>
+                                  )}
                                 </div>
                               </div>
-                            </div>
-                          </article>
-                        ))}
-                      </div>
+                            </article>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className={ui_styles.project_timeline_empty_state}>
+                          <p className={ui_styles.project_timeline_empty_title}>
+                            {selectedProjectYearSection.emptyTitle ?? "등록된 프로젝트가 아직 없습니다."}
+                          </p>
+                          {selectedProjectYearSection.emptyDescription && (
+                            <p className={ui_styles.project_timeline_empty_description}>
+                              {selectedProjectYearSection.emptyDescription}
+                            </p>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </>

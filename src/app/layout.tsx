@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Header from "./header";
 import Footer from "./footer";
+import { withBasePath } from "@/lib/base-path";
 
 import localFont from "next/font/local";
 
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
-        <link rel="shortcut icon" href="/wht.png" type="image/x-icon" />
+        <link rel="shortcut icon" href={withBasePath("/wht.png")} type="image/x-icon" />
       </head>
       <body className={`${pretendard.variable} ${jamsil.variable}`}>
         <Header />

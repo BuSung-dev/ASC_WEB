@@ -5,12 +5,13 @@ import styles from "@/styles/page.module.css";
 import ui_styles from "@/styles/ui.module.css";
 import FadeFromLeft from "@/component/FadeFromLeft";
 import DefaultQA from "@/component/DefaultQA";
+import { withBasePath } from "@/lib/base-path";
 
 export default function IntroducePage() {
   const [questionList, setQuestionList] = useState({} as any);
 
   useEffect(() => {
-    fetch("/data/questions.json").then(async (result) => {
+    fetch(withBasePath("/data/questions.json")).then(async (result) => {
       setQuestionList(await result.json());
     });
   }, []);

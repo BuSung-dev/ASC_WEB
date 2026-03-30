@@ -9,6 +9,7 @@ import FadeFromLeft from "@/component/FadeFromLeft";
 import { FaArrowRight } from "react-icons/fa";
 
 import { useRouter } from "next/navigation";
+import { withBasePath } from "@/lib/base-path";
 
 export default function ApplyPage() {
   const [applyInfo, setApplyInfo] = useState<{
@@ -30,7 +31,7 @@ export default function ApplyPage() {
   const router = useRouter();
 
   useEffect(() => {
-    fetch("/data/apply.json").then(async (res) => {
+    fetch(withBasePath("/data/apply.json")).then(async (res) => {
       const data = await res.json();
       setApplyInfo(data);
     });

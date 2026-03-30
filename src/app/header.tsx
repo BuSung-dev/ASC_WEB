@@ -8,6 +8,7 @@ import ui_styles from "@/styles/ui.module.css";
 import DefaultBtn from "@/component/DefaultBtn";
 import { FaArrowRight } from "react-icons/fa";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
+import { withBasePath } from "@/lib/base-path";
 
 import { useRouter, usePathname } from "next/navigation";
 
@@ -67,7 +68,7 @@ export default function Header() {
                     <div className={ui_styles.header_left}>
                         <Link className={ui_styles.logo} href={"/"}>
 
-                            <Image src={"/ASC.png"} width={100} height={100} alt="logo" />
+                            <Image src={withBasePath("/ASC.png")} width={100} height={100} alt="logo" />
                             <span className={ui_styles.logo_text} style={{ fontWeight: 600, letterSpacing: -0.8, color: "rgba(255, 255, 255, 1)", }}>ASC</span>
 
                         </Link>

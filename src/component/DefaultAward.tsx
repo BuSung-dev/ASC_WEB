@@ -3,6 +3,7 @@
 import ui_styles from "@/styles/ui.module.css";
 import { useState } from "react";
 import Image from "next/image";
+import { withBasePath } from "@/lib/base-path";
 
 export default function DefaultAward(
     { contestName, awardName, winnerName, date, image }:
@@ -20,7 +21,7 @@ export default function DefaultAward(
             {/* Image container - visible on hover */}
             <div className={ui_styles.image_container} style={{ opacity: isHovered ? 1 : 0 }}>
                 <Image 
-                    src={ image ?? "/defaultAward.jpg" } 
+                    src={ withBasePath(image ?? "/defaultAward.jpg") } 
                     alt="award image" 
                     layout="fill" 
                     objectFit="cover"

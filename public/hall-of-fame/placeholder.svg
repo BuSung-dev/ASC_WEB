@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" fill="none">
+  <rect width="1200" height="1200" fill="#101214"/>
+  <rect x="94" y="94" width="1012" height="1012" rx="40" stroke="rgba(255,255,255,0.08)" stroke-width="4"/>
+  <rect x="168" y="168" width="864" height="864" rx="28" fill="url(#bg)"/>
+  <circle cx="600" cy="445" r="146" fill="rgba(255,255,255,0.08)"/>
+  <path d="M600 630c-164 0-256 90-291 174h582c-35-84-127-174-291-174Z" fill="rgba(255,255,255,0.08)"/>
+  <text x="600" y="952" fill="rgba(255,255,255,0.92)" font-family="Pretendard, Arial, sans-serif" font-size="120" font-weight="700" text-anchor="middle">ASC</text>
+  <text x="600" y="1034" fill="#4B77D8" font-family="Pretendard, Arial, sans-serif" font-size="44" font-weight="600" text-anchor="middle">Hall Of Fame</text>
+  <defs>
+    <linearGradient id="bg" x1="168" y1="168" x2="1032" y2="1032" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B2330"/>
+      <stop offset="1" stop-color="#0E1116"/>
+    </linearGradient>
+  </defs>
+</svg>

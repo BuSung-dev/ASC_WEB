@@ -1,0 +1,117 @@
+/* root.css */
+
+::selection {  color: white;  background-color: var(--main-color);}
+
+@media (max-width: 720px) {
+  :root {
+    --padding: 25px;
+  }
+}
+
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'TheJamsil4Medium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil4Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TheJamsil3Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil3Regular.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'TheJamsil2Light';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil2Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+:root {
+  --background: #121212;
+  --foreground: #ededed;
+  --rev-color: black;
+  --main-color: #4B77d8;
+  --padding: 60px;
+  /* Slightly brighter green for better contrast */
+  --award-bg: rgba(255, 255, 255, 0.1);
+  /* Darker award background */
+  --award-border: rgba(255, 255, 255, 0.1);
+  /* Lighter award border */
+  --contest-name-color: rgba(255, 255, 255, 0.9);
+  /* Lighter text */
+  --contest-people-date-color: rgba(255, 255, 255, 0.6);
+  /* Slightly lighter text */
+  --qna-border: rgba(255, 255, 255, 0.1);
+  --curriculum-border: rgba(255, 255, 255, 0.2);
+  --curriculum-info-text-color: rgba(255, 255, 255, 0.8);
+  /* Lighter text */
+  --curriculum-active-bg: rgba(255, 255, 255, 0.1);
+  --team-activity-bg: rgba(255, 255, 255, 0.02);
+  --team-activity-border: rgba(255, 255, 255, 0.2);
+  --team-activity-text-color: rgba(255, 255, 255, 0.9);
+  --headline-color: rgba(255, 255, 255, 0.2);
+
+  .header_wrap,
+  .header_left,
+  .header_right,
+  .menus,
+  .logo_text {
+    color: white !important;
+    /* Ensure header text is always white in dark mode */
+  }
+
+  .default_btn {
+    border: 1px solid white;
+  }
+
+  .mobile_menu_wrap {
+    background-color: #121212;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-pretendard), "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color : rgba(0,0,0,0);
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+@media (max-width: 720px) {
+
+  :root {
+    --padding: 20px;
+  }
+  
+}

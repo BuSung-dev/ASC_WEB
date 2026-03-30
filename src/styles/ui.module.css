@@ -1,0 +1,1272 @@
+/* ui.css */
+
+/* :root {
+  --background: rgba(0, 0, 0, 0.03);
+  --foreground: #171717;
+  --rev-color : white;
+  --padding: 60px;
+  --main-color: #4B77d8;
+  --award-bg: rgba(255, 255, 255, 0.5);
+  --award-border: rgba(0,0,0,0.1);
+  --contest-name-color: rgba(0,0,0,0.8);
+  --contest-people-date-color: rgba(0,0,0,0.3);
+  --qna-border: rgba(0,0,0,0.05);
+  --curriculum-border: rgba(255, 255, 255, 0.1);
+  --curriculum-info-text-color: rgba(255, 255, 255, 0.7);
+  --curriculum-active-bg: rgba(255, 255, 255, 0.05);
+  --team-activity-bg: rgba(255, 255, 255, 0.05);
+    --team-activity-border: rgba(255,255,255,0.05);
+  --team-activity-text-color: rgba(255, 255, 255, 0.7);
+  --headline-color: rgba(0,0,0,0.15);
+} */
+
+
+
+.floating {
+  animation: floatUpDown 3s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Removed color changes from floating animation */
+
+
+
+.header {
+  z-index: 9999;
+  height: 75px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.footer {
+  bottom: 0;
+}
+
+.header_wrap {
+  height: 75px;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.0);
+  display: flex;
+  justify-content: center;
+}
+
+.header_wrap .header_menu_wrap {
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+  width: 100%;
+}
+
+.header_wrap .header_left {
+  color: var(--foreground);
+  /* Use variable for color */
+  width: 70%;
+  float: left;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header_left .logo img {
+  width: auto;
+  height: 45%;
+  margin-right: 3px;
+}
+
+.header_left .logo {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.header_left .menus {
+  display: flex;
+  gap: 50px;
+  color: var(--foreground);
+  /* Use variable */
+}
+
+.header_left .menus .menu {
+  display: flex;
+  align-items: center;
+}
+
+.header_wrap .header_right {
+  color: var(--foreground);
+  /* Use variable */
+  width: 30%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  height: 100%;
+}
+
+.video_wrap {
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.video_wrap video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.text_title_big {
+  font-size: 64px;
+  line-height: 1.2;
+}
+
+.text_title {
+  /* font-family: 'TheJamsil4Medium'; */
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.text_title_2 {
+  font-size: 36px;
+}
+
+.text_description_3 {
+  font-size: 15px;
+}
+
+
+.text_description {
+  font-size: 22px;
+}
+
+.text_description_2 {
+  font-size: 18px;
+}
+
+.default_btn {
+  padding: 12px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  gap: 5px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  /* Use variable */
+  border: 1px solid white;
+  /* Use variable */
+  transition: ease-in-out .2s all;
+}
+
+.default_btn:hover {
+  color: black !important;
+  /* Use variable */
+  background-color: white
+    /* Use variable */
+}
+
+.default_btn:hover * {
+  color: black !important;
+  /* Use variable */
+}
+
+.headline {
+  margin-left: 40%;
+  margin-right: 40%;
+  height: 2px;
+  background-color: var(--headline-color);
+  border: none;
+  border-radius: 30px;
+}
+
+.awards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  justify-content: space-between;
+  gap: 20px
+}
+
+.award {
+  width: 100%;
+  min-width: 350px;
+  background-color: var(--award-bg);
+  border: 2px solid var(--award-border);
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  min-height: 80px;
+}
+
+.award:hover {
+  min-height: 320px;
+}
+
+.award .image_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.award_image {
+  transition: transform 0.3s ease-in-out;
+}
+
+.award:hover .award_image {
+  transform: scale(1.1);
+}
+
+.award .contest_info {
+  display: flex;
+  padding: 20px;
+  border-radius: 20px;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+  height: 100%;
+}
+
+.contest_info_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  transition: opacity 0.3s ease-in-out;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.contest_award_overlay {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--main-color);
+  margin-bottom: 4px;
+}
+
+.contest_name_overlay {
+  font-family: 'TheJamsil3Regular';
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.contest_people_overlay {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contest_info .contest_name {
+  font-family: 'TheJamsil3Regular';
+  margin-top: -5px;
+  font-weight: 500;
+  font-size: 24px;
+  color: var(--contest-name-color);
+}
+
+.contest_info .contest_award {
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--main-color);
+}
+
+.contest_info .contest_people {
+  font-size: 14px;
+  color: var(--contest-people-date-color);
+}
+
+.contest_info .contest_date {
+  font-size: 14px;
+  color: var(--contest-people-date-color);
+}
+
+.contest_info .contest_bottom {
+  margin-top: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.qna_wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.qna_wrap * {
+  transition: ease-in-out .2s all;
+}
+
+.qna_wrap .qna {
+  width: 100%;
+  padding: 25px 40px;
+  background-color: rgba(0, 255, 0, 0.00);
+  border-radius: 20px;
+  border: 2px solid var(--qna-border);
+  overflow: hidden;
+}
+
+.qna .qna_a {
+  display: none;
+}
+
+.curriculum_wrap {
+  margin-left: 20px;
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  gap: 30px
+}
+
+.curriculum_wrap .curriculum_info_wrap * {
+  color: var(--curriculum-info-text-color);
+}
+
+.curriculum_wrap .curriculum {
+  text-align: center;
+  max-width: 200px;
+  min-width: 180px;
+  width: 100%;
+  padding: 15px 25px;
+  background-color: rgba(0, 0, 0, 0.00);
+  border: 2px solid var(--curriculum-border);
+  color: var(--curriculum-info-text-color);
+  border-radius: 5px;
+  transition: ease-in-out 0.1s all;
+}
+
+.curriculum_wrap .curriculum.active {
+  border: 2px solid var(--main-color);
+  background-color: var(--curriculum-active-bg);
+}
+
+.curriculum_wrap .curriculum:active {
+  scale: 0.98;
+  background-color: rgba(255, 255, 255, 0.03);
+  /* Keep this consistent */
+}
+
+.curriculum_wrap .curriculum_info_wrap {
+  width: 100%;
+  min-height: 200px;
+  padding: 30px;
+  border-radius: 10px;
+  margin-right: 20px;
+  border: 2px solid var(--curriculum-border);
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 35px;
+
+}
+
+
+.curriculum_info_wrap .curriculum_info {
+  width: 50%;
+}
+
+.curriculum_info img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.team_activity_wrap {
+  display: flex;
+  width: 100%;
+}
+
+.team_activity_wrap > :nth-child(1) {
+  width: 30%;
+}
+
+.team_activity_wrap > :nth-child(2) {
+  width: 70%;
+}
+
+.team_activity_wrap * {
+  color: var(--team-activity-text-color);
+}
+
+
+.team_activity_wrap .team_activity {
+  width: 100%;
+  padding: 15px 25px;
+  background-color: var(--team-activity-bg);
+  border-radius: 5px;
+  border: 2px solid var(--team-activity-border);
+  overflow: hidden;
+  transition: ease-in-out 0.2s all;
+  margin-bottom: 10px;
+}
+
+.team_activity_wrap .team_activity * {
+  transition: ease-in-out 0.2s all;
+}
+
+.team_activity_header {
+  gap: 15px;
+  display: flex;
+  width: 100%;
+}
+
+.team_activity_answer {
+  width: 100%;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease, transform 0.25s ease;
+}
+
+.team_activity_answer_open {
+  opacity: 1;
+  margin-top: 14px;
+  transform: translateY(0);
+}
+
+.team_activity_answer_closed {
+  opacity: 0;
+  margin-top: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
+.team_activity_answer_inner {
+  gap: 15px;
+  display: flex;
+  width: 100%;
+}
+
+.team_activity_answer_inner .text_description_2 {
+  line-height: 24px;
+}
+
+.project_category_filters {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project_category_filter {
+  border: 1px solid var(--award-border);
+  background-color: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.62);
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 11px;
+  transition: ease-in-out 0.2s all;
+}
+
+.project_category_filter:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.project_category_filter_active {
+  background-color: rgba(75, 119, 216, 0.14);
+  border-color: var(--main-color);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.project_timeline {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project_year_tabs {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project_year_tab {
+  border: 2px solid var(--team-activity-border);
+  background-color: rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.58);
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 20px;
+  transition: ease-in-out 0.2s all;
+}
+
+.project_year_tab:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.project_year_tab_active {
+  border-color: var(--main-color);
+  color: rgba(255, 255, 255, 0.58);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.project_year_tab_active:hover {
+  border-color: var(--main-color);
+}
+
+.project_year_panel {
+  width: 100%;
+}
+
+.project_year_block {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: padding 0.25s ease, border-color 0.25s ease;
+}
+
+.project_year_block_open {
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.project_year_block_closed {
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.project_year_block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project_year_head {
+  width: 110px;
+  min-width: 110px;
+}
+
+.project_year_toggle {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  text-align: left;
+  transition: ease-in-out 0.2s all;
+  cursor: pointer;
+}
+
+.project_year_badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 72px;
+  padding: 8px 12px;
+  border: 1px solid var(--award-border);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.02);
+  font-size: 14px;
+  font-weight: 700;
+  transition: ease-in-out 0.2s all;
+}
+
+.project_year_toggle_active .project_year_badge {
+  border-color: var(--main-color);
+  color: var(--main-color);
+  background-color: rgba(75, 119, 216, 0.12);
+}
+
+.project_year_toggle:hover .project_year_badge {
+  color: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.project_year_toggle_active:hover .project_year_badge {
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+.project_year_content {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.25s ease, transform 0.3s ease;
+}
+
+.project_year_content_open {
+  max-height: 1600px;
+  opacity: 1;
+  margin-top: 8px;
+  transform: translateY(0);
+}
+
+.project_year_content_closed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+}
+
+.project_year_track {
+  position: relative;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.project_year_track_switch {
+  margin-top: 30px;
+  animation: projectYearSwitchIn 0.3s ease;
+}
+
+@keyframes projectYearSwitchIn {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project_year_track::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4px;
+  width: 1px;
+  background-color: var(--award-border);
+}
+
+.project_milestone {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project_milestone:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.project_milestone_dot {
+  position: absolute;
+  left: -17px;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  box-shadow: none;
+}
+
+.project_milestone_card {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 10px 0 10px 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.project_milestone_thumbnail_wrap {
+  width: 170px;
+  min-width: 170px;
+  border: 0px solid var(--team-activity-border);
+  border-radius: 13px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.project_milestone_thumbnail {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  display: block;
+}
+
+.project_milestone_content {
+  flex: 1;
+  min-width: 0;
+}
+
+.project_milestone_meta {
+  margin-bottom: 5px;
+}
+
+.project_milestone_category {
+  color: var(--main-color);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.project_milestone_title {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.project_milestone_description {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 16px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.project_milestone_tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project_milestone_tag {
+  border: 1px solid var(--award-border);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.project_timeline_empty {
+  margin-top: 14px;
+  border: 1px solid var(--award-border);
+  border-radius: 5px;
+  padding: 14px 12px;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 14px;
+}
+
+.home_cta_box {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border: none;
+  background-color: transparent;
+  padding: 52px 24px;
+  text-align: center;
+}
+
+.home_cta_title {
+  font-size: 30px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.home_cta_description {
+  margin-top: 10px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.home_cta_action {
+  margin-top: 26px;
+  display: flex;
+  justify-content: center;
+}
+
+.hof_layout {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hof_section {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 0;
+  background-color: transparent;
+}
+
+.hof_section_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+  margin-bottom: 14px;
+}
+
+.hof_section_title {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hof_section_desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.hof_grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.hof_item {
+  border: 1px solid var(--award-border);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.02);
+  padding: 14px 12px;
+}
+
+.hof_item_kicker {
+  color: var(--main-color);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.hof_item_title {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.hof_item_meta {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+}
+
+.hof_badge_row {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.hof_badge {
+  border: 1px solid var(--award-border);
+  border-radius: 5px;
+  padding: 3px 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.58);
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.mobile_show {
+  display: none;
+}
+
+.mobile_menu_wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #121212;
+  transition: ease-in-out 0.5s all;
+}
+
+.mobile_menu_wrap .close_btn {
+  top: 0px;
+  width: 100vw;
+}
+
+.mobile_menu_wrap .close_btn svg {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: white;
+  font-size: 32px;
+}
+
+.mobile_menu_wrap .mobile_menu {
+  margin-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.mobile_menu .menu_btn {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+.logo_text {
+  font-size: 24px;
+  color: var(--foreground)
+}
+
+.curriculum_wrap .curriculums {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+
+
+@media (max-width : 1200px) {
+  .awards {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap : 15px;
+  }
+
+  .hof_grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+
+
+  .header {
+    height: 50px;
+  }
+
+  .header_wrap {
+    height: 50px;
+  }
+
+  .logo_text {
+    font-size: 18px;
+  }
+
+
+  .mobile_show {
+    display: block;
+  }
+
+  .mobile_hide {
+    display: none;
+  }
+
+  .team_activity_wrap {
+    margin-top: -35px;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .team_activity_wrap > :nth-child(1) {
+    width: 100%;
+  }
+
+  .team_activity_wrap > :nth-child(2) {
+    width: 100%;
+  }
+
+  .team_activity_answer_inner .text_description_2 {
+    line-height: 22px;
+  }
+
+
+  .curriculum_wrap .curriculum_info_wrap {
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .curriculum_info_wrap .curriculum_info {
+    width: 100%;
+    order: 2;
+  }
+
+  .curriculum_info_wrap .curriculum_info img {
+    border-radius: 5px;
+  }
+
+  .curriculum_info_wrap .curriculum_info.image {
+    order: 1;
+  }
+
+
+
+  .curriculum_wrap {
+    margin-left: 0;
+
+    margin-top: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .curriculum_wrap .curriculums {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+    /* justify-content: center; */
+    gap: 5px;
+  }
+
+
+  .curriculum_wrap .curriculum {
+    max-width: 200px;
+    min-width: 100px;
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+
+
+  .contest_info .contest_name {
+    font-size: 16px;
+  }
+
+  .contest_info .contest_award {
+    font-size: 18px;
+  }
+
+
+  .contest_info .contest_bottom * {
+    font-size: 11px;
+  }
+
+  .awards {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .award {
+
+    min-width: 0px;
+    width: 100%;
+  }
+
+  .text_title_big {
+    font-size: 32px;
+  }
+
+  .text_title {
+    font-size: 30px;
+  }
+
+  .text_title_2 {
+    font-size: 24px;
+  }
+
+  .text_description {
+    font-size: 18px;
+  }
+
+  .home_cta_box {
+    padding: 36px 16px;
+  }
+
+  .home_cta_title {
+    font-size: 24px;
+  }
+
+  .home_cta_description {
+    font-size: 15px;
+  }
+
+  .hof_section_head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+  }
+
+  .hof_section_title {
+    font-size: 22px;
+  }
+
+  .hof_section_desc {
+    font-size: 13px;
+  }
+
+  .hof_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hof_item_title {
+    font-size: 16px;
+  }
+
+  .hof_item_meta {
+    font-size: 13px;
+  }
+
+  .project_milestone_card {
+    display: block;
+    padding: 8px 0 8px 8px;
+  }
+
+  .project_milestone_thumbnail_wrap {
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 10px;
+  }
+
+  .project_milestone_thumbnail {
+    height: 120px;
+  }
+
+  .project_year_tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .project_year_tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project_year_tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .text_description_2 {
+    font-size: 16px;
+  }
+
+  .header_left .menus {
+    display: none;
+  }
+
+  .header_wrap .header_left {
+    width: 30%;
+  }
+
+  .header_wrap .header_right {
+    width: 70%;
+  }
+
+  .qna_wrap .qna {
+    padding: 20px 30px;
+  }
+
+  .project_category_filters {
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .project_category_filter {
+    flex: 0 0 auto;
+    font-size: 12px;
+    padding: 6px 9px;
+  }
+
+  .project_timeline {
+    margin-top: 18px;
+    gap: 10px;
+  }
+
+  .project_year_block {
+    display: block;
+    padding-bottom: 12px;
+  }
+
+  .project_year_head {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .project_year_toggle {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .project_year_badge {
+    min-width: 58px;
+    font-size: 12px;
+    padding: 5px 9px;
+  }
+
+  .project_year_track {
+    width: 100%;
+    padding-left: 14px;
+    gap: 8px;
+  }
+
+  .project_year_track::before {
+    left: 3px;
+  }
+
+  .project_milestone_dot {
+    left: -13px;
+    top: 9px;
+    width: 7px;
+    height: 7px;
+  }
+
+  .project_milestone_card {
+    padding: 15px;
+  }
+
+  .project_milestone_category {
+    font-size: 11px;
+  }
+
+  .project_milestone_title {
+    font-size: 18px;
+  }
+
+  .project_milestone_description {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .project_milestone_tags {
+    margin-top: 8px;
+    gap: 5px;
+  }
+
+  .project_milestone_tag {
+    font-size: 10px;
+    padding: 4px 7px;
+  }
+
+  .project_timeline_empty {
+    margin-top: 10px;
+    font-size: 12px;
+    padding: 11px 10px;
+  }
+
+}

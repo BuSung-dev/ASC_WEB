@@ -1,0 +1,57 @@
+{
+    "awards" : [{
+        "contestName" : "PoC CTF 2025",
+        "awardName" : "2위",
+        "winnerName" : "백부승",
+        "date" : "2025-9-21",
+        "image" : "/award_image/poc_2025.jpg"
+    },{
+        "contestName" : "Hacktheon 2025 (고급부)",
+        "awardName" : "대상",
+        "winnerName" : "Team. ASCii",
+        "date" : "2025-7-11",
+        "image" : "/award_image/hacktheon_2025.jpg"
+    },{
+        "contestName" : "HackSium Busan 2025",
+        "awardName" : "1위, 3위",
+        "winnerName" : "Team. 핵비싼슝슝이의오리고기 외 1팀",
+        "date" : "2025-7-19",
+        "image" : "/award_image/hacksium_2025.png"
+    },{
+        "contestName" : "국방부 화이트햇 콘테스트 2022",
+        "awardName" : "대상",
+        "winnerName" : "Team. 존잘해커모임",
+        "date" : "2022-11-29",
+        "image" : "/award_image/whitehat_2022.jpg"
+    },{
+        "contestName" : "KO-WORLD Hackathon in Dubai",
+        "awardName" : "1위, 2위",
+        "winnerName" : "박성준외 1인",
+        "date" : "2022-10-17",
+        "image" : "/award_image/ko_world_2022.jpg"
+    },{
+        "contestName" : "CodeGate 국제해킹방어대회 2022",
+        "awardName" : "2위",
+        "winnerName" : "Team. 해군해난구조전대",
+        "date" : "2022-11-07",
+        "image" : "/award_image/codegate_2022.jpg"
+    },{
+        "contestName" : "DEFCON CTF",
+        "awardName" : "3위",
+        "winnerName" : "Team. StarBugs",
+        "date" : "2022-08-15",
+        "image" : "/award_image/defcon_2022.jpg"
+    },{
+        "contestName" : "Hacktheon Sejong 2022",
+        "awardName" : "대상",
+        "winnerName" : "Team. ASC",
+        "date" : "2022-08-16",
+        "image" : "/award_image/sejong_2022.png"
+    },{
+        "contestName" : "FIESTA 2022 금융보안 위협분석 대회",
+        "awardName" : "우수상",
+        "winnerName" : "Team. 루나홀더모임",
+        "date" : "2022-11-11",
+        "image" : "/award_image/sec_2022.jpg"
+    }]
+}

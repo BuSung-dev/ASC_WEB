@@ -1,0 +1,72 @@
+{
+  "timeline": [
+    {
+      "year": "2025",
+      "projects": [
+        {
+          "category": "Web Security",
+          "title": "AutoVuln Scanner Pro",
+          "description": "CI/CD 파이프라인 통합형 자동 취약점 점검 도구를 개발하고, OWASP Top 10 시나리오 기반 리포트 자동화를 구현했습니다.",
+          "tags": ["Python", "Docker", "Selenium"]
+        },
+        {
+          "category": "Network & Cloud",
+          "title": "Cloud Misconfig Hunter",
+          "description": "AWS/GCP 환경의 권한 및 스토리지 오설정을 탐지하고 위험도 우선순위에 따라 시각화하는 점검 체계를 구축했습니다.",
+          "tags": ["AWS", "Terraform", "Go"]
+        }
+      ]
+    },
+    {
+      "year": "2024",
+      "projects": [
+        {
+          "category": "Malware Analysis",
+          "title": "Hybrid Sandbox Lab",
+          "description": "정적/동적 분석을 결합한 샌드박스 실험 환경을 운영해 IOC 추출과 악성 행위 분석 시간을 단축했습니다.",
+          "tags": ["YARA", "Cuckoo", "Flask"]
+        },
+        {
+          "category": "Network & Cloud",
+          "title": "SOC Alert Correlator",
+          "description": "네트워크 이벤트와 엔드포인트 로그 상관분석 파이프라인을 구성해 오탐을 줄이고 침해 징후를 조기 탐지했습니다.",
+          "tags": ["ELK", "Sigma", "Kafka"]
+        }
+      ]
+    },
+    {
+      "year": "2023",
+      "projects": [
+        {
+          "category": "Web Security",
+          "title": "WAF Bypass Simulator",
+          "description": "WAF 우회 페이로드 생성과 검증을 위한 학습용 시뮬레이터를 제작해 정규식 기반 필터 취약점 분석을 실습했습니다.",
+          "tags": ["Node.js", "React", "Regex"]
+        },
+        {
+          "category": "Cryptography",
+          "title": "CTF Crypto Playground",
+          "description": "암호학 문제 풀이와 자동 채점을 포함한 실습 플랫폼을 구축해 대칭/비대칭/수론 기반 문제 학습을 지원했습니다.",
+          "tags": ["Rust", "Math", "CTF"]
+        }
+      ]
+    },
+    {
+      "year": "2022",
+      "projects": [
+        {
+          "category": "Malware Analysis",
+          "title": "Threat Family Mapper",
+          "description": "샘플 유사도와 C2 패턴을 기반으로 악성코드 계열을 분류하는 내부 분석 보조 도구를 설계했습니다.",
+          "tags": ["Python", "Graph", "ML"]
+        },
+        {
+          "category": "Cryptography",
+          "title": "Cipher Weakness Analyzer",
+          "description": "암호 구현 취약점과 난수 품질 이슈를 재현/검증할 수 있는 분석 환경을 만들고 케이스별 점검 템플릿을 정리했습니다.",
+          "tags": ["C", "OpenSSL", "Audit"]
+        }
+      ]
+    }
+  ]
+}

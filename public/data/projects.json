@@ -13,37 +13,43 @@
           "title": "바이너리감자",
           "members": "곽동윤, 김진호, 최정우, 권율, 김준수, 김홍균",
           "description": "기숙사 출입 시스템에 쓰이는 MIFARE Classic 카드를 덤프 떠서 일반 사생 카드와 관리자 카드의 권한 비트 및 포맷 차이를 비교하고 보안 취약점을 분석했습니다.",
-          "tags": ["MIFARE Classic", "출입 시스템", "취약점 분석"]
+          "tags": ["MIFARE Classic", "출입 시스템", "취약점 분석"],
+          "image": "/award_image/project_binary_gamja-01.jpg"
         },
         {
           "title": "404BraiNotFound",
           "members": "곽범준(팀장), 이준희, 이채은, 이화진",
           "description": "Hack The Box의 Dante Pro Lab 리눅스 환경에서 모의해킹을 진행했습니다. 스캐닝부터 웹 셸 업로드, 권한 상승, 내부망 피버팅까지 전반적인 침투 과정을 수행했습니다.",
-          "tags": ["HTB Dante Pro Lab", "모의해킹", "리눅스"]
+          "tags": ["HTB Dante Pro Lab", "모의해킹", "리눅스"],
+          "image": "/award_image/project_404brainotfound-01.jpg"
         },
         {
           "title": "SSUKA",
           "members": "김현민, 노승준, 이준기",
           "description": "숭실대학교 SSO 로그인과 LMS, 스마트캠퍼스 등 여러 교내 서비스를 대상으로 버그바운티 및 취약점 점검을 진행했습니다.",
-          "tags": ["SSO", "LMS", "버그바운티"]
+          "tags": ["SSO", "LMS", "버그바운티"],
+          "image": "/award_image/project_ssuka-01.jpg"
         },
         {
           "title": "Croncrew",
           "members": "이예빈, 김동후, 김레빈, 양상윤, 정태영, 최재웅",
           "description": "KISA 및 CIS 가이드라인을 바탕으로 리눅스 서버의 기초 설정 취약점을 즉시 확인하고 찾아주는 자동화 점검 셸 스크립트를 개발했습니다.",
-          "tags": ["리눅스", "자동화 점검", "셸 스크립트"]
+          "tags": ["리눅스", "자동화 점검", "셸 스크립트"],
+          "image": "/award_image/project_croncrew-01.jpg"
         },
         {
           "title": "눈뜨고 코 베인다",
           "members": "한지선(팀장), 박민영, 류태현, 김영현",
           "description": "ipTIME C200 IP 카메라 장비를 확보해 펌웨어에 하드코딩된 백도어와 힙 버퍼 오버플로우 취약점을 직접 분석하고 원격 명령 실행(RCE) 공격을 시연했습니다.",
-          "tags": ["펌웨어", "IP 카메라", "RCE"]
+          "tags": ["펌웨어", "IP 카메라", "RCE"],
+          "image": "/award_image/project_eyeopen-01.jpg"
         },
         {
           "title": "워게임 유괴단",
           "members": "류석준, 김서윤, 류도현, 황재민",
           "description": "부원들이 직접 해킹 문제를 내고 풀 수 있는 자체 참여형 워게임 플랫폼 Wargame Bandits를 구축했습니다. 추후 동아리 CTF 아카이브로 활용할 수 있도록 시스템을 설계했습니다.",
-          "tags": ["워게임", "플랫폼", "CTF 아카이브"]
+          "tags": ["워게임", "플랫폼", "CTF 아카이브"],
+          "image": "/award_image/project_wargame-01.jpg"
         }
       ]
     }

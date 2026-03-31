@@ -35,6 +35,19 @@
       "website": "https://realsung.kr",
       "siteLabel": "realsung.kr",
       "image": "/hall-of-fame/realsung.png"
+    },
+    {
+      "handle": "g0riya",
+      "name": "채하늘",
+      "summary": "System Security",
+      "description": "<p><strong>관심 분야</strong><br />System Security를 중심으로 활동하고 있습니다.</p><p><strong>공개 프로필</strong><br />X(Twitter)와 GitHub에서 활동 내역을 확인할 수 있습니다.</p>",
+      "website": "https://github.com/G0RiyA",
+      "siteLabel": "github.com/G0RiyA",
+      "links": [
+        { "url": "https://x.com/__g0ri__", "label": "X (@__g0ri__)" },
+        { "url": "https://github.com/G0RiyA", "label": "GitHub" }
+      ],
+      "image": "/hall-of-fame/g0riya.png"
     }
   ]
 }
